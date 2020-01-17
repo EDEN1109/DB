@@ -1,0 +1,3 @@
+UPDATE   Product
+SET  stock_num = '&변경된_재고량'
+WHERE   num = '&음향기기번호'

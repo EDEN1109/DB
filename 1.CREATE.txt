@@ -1,0 +1,614 @@
+alter session set nls_date_format = 'YYYY/MM/DD HH24:MI:SS';
+SET DEFINE OFF;
+
+CREATE TABLE MusicApp_User (
+  user_ID VARCHAR2(15),
+  name VARCHAR2(10) NOT NULL,
+  password VARCHAR2(20) NOT NULL,
+  sex VARCHAR2(1) CHECK(sex IN('M','F')),
+  phon VARCHAR2(13) UNIQUE,
+  address VARCHAR2(200),
+  email VARCHAR2(100) UNIQUE,
+  born_date DATE NOT NULL,
+  CONSTRAINT User_PK PRIMARY KEY (user_ID));
+
+INSERT INTO MusicApp_User VALUES ('zxcv1256', '이유이','dfgr2312', 'F', '010-1111-1111', '충청남도 천안시 동남구 병천면 충절로 1624 금실타운 101동 202호', 'qwer1234@koreatech.ac.kr', TO_DATE('1999/01/01','YYYY/MM/DD'));
+INSERT INTO MusicApp_User VALUES ('wjnf12', '박예리','ehgk1297', 'M', '010-2351-7821', '세종특별자치시 조치원읍 이화1로 15 이편한세상아파트 102동 1703호', 'welkrj@naver.com', TO_DATE('1991/02/03','YYYY/MM/DD'));
+INSERT INTO MusicApp_User VALUES ('pineTree04', '수완조','zidnjstit14', 'F', '010-0045-2346', '경기 포천시 중앙로 58 구루아파트 12동 1호', 'pinetree@naver.com', TO_DATE('1961/12/23','YYYY/MM/DD'));
+INSERT INTO MusicApp_User VALUES ('rbhwe148', '박기수','dsjett297', 'M', '010-1275-7451', '경기 평택시 청북읍 안청로 14 한내들아파트 104동 103호', 'enrmsenr@naver.com', TO_DATE('1973/04/15','YYYY/MM/DD'));
+INSERT INTO MusicApp_User VALUES ('cheoqkr43', '최부자','ejebt1246', 'M', '010-7437-1375', '서울시 강남구 역삼로 307', 'wlfkfak@gmail.com', TO_DATE('1988/05/06','YYYY/MM/DD'));
+INSERT INTO MusicApp_User VALUES ('ewnqw44', '사기람','tnsehdk123', 'F', '010-3812-1239', '서울시 강남구 언주로85길 13 경남아파트 103호 1002호', 'dnerbq12@naver.com', TO_DATE('1987/12/31','YYYY/MM/DD'));
+INSERT INTO MusicApp_User VALUES ('replayms', '무이서','musicback', 'F', '010-3351-7425', '세종특별자치시 조치원읍 이화1로 15 이편한세상아파트 105동 1203호', 'we2132@naver.com', TO_DATE('2000/07/13','YYYY/MM/DD'));
+INSERT INTO MusicApp_User VALUES ('hajamas', '구민교','rejbe12038', 'M', '010-8712-3331', '서울시 강남구 대치동 아름빌 1동 13호', 'arrm123@naver.com', TO_DATE('1981/08/13','YYYY/MM/DD'));
+INSERT INTO MusicApp_User VALUES ('wolfback123', '신민기','erjndbhb123', 'M', '011-400-2821', '충청남도 논산시 중앙로 281-6 취암모닝빌 304동 120호', 'wwwolkd@daum.net', TO_DATE('2001/02/23','YYYY/MM/DD'));
+INSERT INTO MusicApp_User VALUES ('grecklv123', '신나라','erqwe1297', 'M', '010-2897-1221', '충청남도 논산시 중앙로 266 세중참사랑 102동 102호', 'nara1219@naver.com', TO_DATE('1991/12/19','YYYY/MM/DD'));
+INSERT INTO MusicApp_User VALUES ('lkjpoi203', '이이라','qweasdf203', 'F', '010-1201-2031', '충청남도 논산시 내동 논산제이파크2단지 201동 203호', 'eeera@koreatech.ac.kr', TO_DATE('2002/02/02','YYYY/MM/DD'));
+INSERT INTO MusicApp_User VALUES ('rydhxm2938', '이준기','eurbd0284', 'M', '010-2048-2758', '충청남도 논산시 내동 논산제이파크2단지 201동 203호', '5jungi@naver.com', TO_DATE('2000/04/03','YYYY/MM/DD'));
+INSERT INTO MusicApp_User VALUES ('hoseo21', '김호세','dnflaksska123', 'M', '010-2355-9671', '전라북도 익산시 부송동 1038 동신아파트 12동 109호', 'khs1119@naver.com', TO_DATE('1998/11/19','YYYY/MM/DD'));
+INSERT INTO MusicApp_User VALUES ('korpark', '박한국','korkkorea', 'F', '010-2948-7471', '세종특별자치시 조치원읍 이화4로 15 한양수자인아파트 102동 1703호', 'korea125@naver.com', TO_DATE('1991/12/05','YYYY/MM/DD'));
+INSERT INTO MusicApp_User VALUES ('jujupark', '주주박','qjqrbsmsvjr', 'F', '010-1151-2345', '전라북도 익산시 동서로 300 영등주공1단지 1703호', 'wnwnqkr@naver.com', TO_DATE('2001/09/21','YYYY/MM/DD'));
+INSERT INTO MusicApp_User VALUES ('ghtjqo123', '이경지','eegyeong97', 'M', '010-2351-4412', '전라북도 익산시 고현로 69 주공2차 203호', 'enbrt12@daum.net', TO_DATE('1971/04/13','YYYY/MM/DD'));
+INSERT INTO MusicApp_User VALUES ('sujilove29', '배수지','tnwltnwlQyd', 'F', '010-2581-4851', '전라북도 익산시 고현로 69 주공2차 203호', 'tntnwldl@naver.com', TO_DATE('1975/06/30','YYYY/MM/DD'));
+INSERT INTO MusicApp_User VALUES ('jinmoon00', '진광문','moon42jin', 'M', '010-5937-4462', '전라북도 익산시 배산로 91-9 현대3차 403호', 'jinjin123@naver.com', TO_DATE('1975/05/23','YYYY/MM/DD'));
+INSERT INTO MusicApp_User VALUES ('ghiee126', '추명수','myeong12', 'M', '010-0091-1004', '충청남도 태안군 장터로 167 골든캐슬 1동 201호', 'goldbar@naver.com', TO_DATE('2005/08/08','YYYY/MM/DD'));
+INSERT INTO MusicApp_User VALUES ('khn1237', '김하나','onlyone', 'F', '010-1209-3991', '세종특별자치시 조치원읍 이화1로 15 이편한세상아파트 102동 1703호', 'onlyonekim@naver.com', TO_DATE('2010/12/09','YYYY/MM/DD'));
+
+commit;
+
+
+
+CREATE TABLE Singer (
+  singer_ID VARCHAR2(15),
+  name VARCHAR2(10) NOT NULL,
+  password VARCHAR2(20) NOT NULL,
+  account_num VARCHAR2(50) NOT NULL,
+  bank VARCHAR2(30) NOT NULL,
+  company VARCHAR2(30),
+  CONSTRAINT Singer_PK PRIMARY KEY (singer_ID),
+  constraint Singer_uni_acc UNIQUE (account_num,bank));
+
+INSERT INTO Singer VALUES ('skfo0243', '장기하','dfgr2312', '110472404135', '신한', 'YG');
+INSERT INTO Singer VALUES ('ewqdsa12', '안지영','qwaszx38', '110472404136', '신한', '쇼파르뮤직');
+INSERT INTO Singer VALUES ('erdfcvc87', '권정렬','ryfhdh01', '435472404120', '하나', '매직스트로베리사운드');
+INSERT INTO Singer VALUES ('rufjvn243', '전정국','vbfgrtd42', '899342404135', '우리', '빅히트');
+INSERT INTO Singer VALUES ('jkkvk943', '이지은','dewrjk57', '345472404135', '농협', '로엠');
+INSERT INTO Singer VALUES ('tunfjg87', '양다일','dfgr2312', '345472404136', '농협', '브랜뉴뮤직');
+INSERT INTO Singer VALUES ('ertuo757', '김태형','cvsjdjf64', '110472406135', '신한', 'SM');
+INSERT INTO Singer VALUES ('cfkjdalh767', '박효신','weiruk898', '110472404137', '신한', '글러브');
+INSERT INTO Singer VALUES ('kuijki098', '장범준','bngjcuh784', '345472404137', '농협', 'MNH');
+INSERT INTO Singer VALUES ('bkfjhydj45', '김청하','wrcnrt454', '345472404138', '농협', 'MNH');
+INSERT INTO Singer VALUES ('gjgyry342', '백예린','wytcb65', '435472404121', '하나', 'JYP');
+INSERT INTO Singer VALUES ('vbdhdr42', '배주현','mgdfxc4', '435472404122', '하나', 'SM');
+INSERT INTO Singer VALUES ('djgtee243', '송민호','dheudtwr1', '110472404138', '신한', 'YG');
+INSERT INTO Singer VALUES ('cbvgtr67', '배수지','sdateger22', '110472404139', '신한', '숲');
+INSERT INTO Singer VALUES ('bmhgjr65', '류수정','xvffxsf98', '435472404123', '하나', '울림');
+INSERT INTO Singer VALUES ('zxcv1256', '이유이','dfgr2312','110472404110', '신한', NULL);
+INSERT INTO Singer VALUES ('wjnf12', '박예리','ehgk1297','435472404124', '하나', NULL);
+INSERT INTO Singer VALUES ('pineTree04', '수완조','zidnjstit14','345472404139', '농협', NULL);
+INSERT INTO Singer VALUES ('rbhwe148', '박기수','dsjett297','110472404111', '신한', NULL);
+INSERT INTO Singer VALUES ('cheoqkr43', '최부자','ejebt1246','345472404140', '농협', NULL);
+
+commit;
+
+
+
+CREATE TABLE Streamer (
+  streamer_ID VARCHAR2(15),
+  name VARCHAR2(10) NOT NULL,
+  passward VARCHAR2(20) NOT NULL,
+  streamer_info VARCHAR2(200),
+  streaming_info VARCHAR2(200),
+  account_num VARCHAR2(50) NOT NULL,
+  bank VARCHAR2(30) NOT NULL,
+  CONSTRAINT Streamer_PK PRIMARY KEY (streamer_ID),
+  constraint Streamer_uni_acc UNIQUE (account_num,bank));
+
+INSERT INTO Streamer VALUES ('alsdud1204', '이민영','goodmornung12345', '안녕하세요, 이민영입니다!', NULL, '32545672293844', '농협');
+INSERT INTO Streamer VALUES ('ewwqej31', '박군머','tptkddptj1234', '먹는 소리로 노래를 만들수 있는 스트리머', '먹는 소리로만 음악을 만들어서 방송합니다. 가끔 먹방도..!', '1002463123977', '우리');
+INSERT INTO Streamer VALUES ('mad_head', '정주기','horri18', '호러 방송 전문 스트리머, 호러 노래/호러 배경음 전문', '호러 스팟가서 듣는 호러노래 호에에', '12304882731', '신한');
+INSERT INTO Streamer VALUES ('skfo0519', '이내래','qwer04213', '신참 스트리머 귀욤뾰쨕', '잘 부탁드립니다!', '9802398411443', '국민');
+INSERT INTO Streamer VALUES ('alfo1105', '서미래','vkdjf0533', NULL, '발라드 중심 방송', '3333081547745', '카카오뱅크');
+INSERT INTO Streamer VALUES ('kyu0421', '박유성','qwercas5432', '부업으로 스트리머를 하는 50대 직장인', NULL, '46255107789', '우체국');
+INSERT INTO Streamer VALUES ('haeyyyyuum', '위해윰','ehaltthf8843', '해윰/레드벨벳/방탄소년단/위키미키', '아이돌 곡 위주 스트리밍', '11054799622', '신한');
+INSERT INTO Streamer VALUES ('phy0524', '박혜연','qkrgpdus123456', '외국 힐링곡 위주 스트리머', '신청곡도 받습니다', '1000254498422', '우리');
+INSERT INTO Streamer VALUES ('lgt1104', '이경태','beowdf0644', NULL, '자작곡/cover 위주 방송합니다. 잘부탁드립니다.', '333362588745', '카카오뱅크');
+INSERT INTO Streamer VALUES ('xodud0728', '이태염','rktzldxodus1111', '게이머/게임 음악 스트리머', '게임을 사랑하는 게임 음악 스트리머 입니다! 같이 게임 하쉴? - > 아이디 : xodud0728', '110476589332', '신한');
+INSERT INTO Streamer VALUES ('ewnqw44', '사기람','tnsehdk123', NULL, '락 종류 음악 스트리머! 다들 소리 질러~~~~~~~~', '7984659331545321', '기업');
+INSERT INTO Streamer VALUES ('replayms', '무이서','musicback', '무이서는 무서이~ 공포 음악 스트리머', '다가오는 여름, 무이서의 공포 음악으로 시원하게 보내는 건 어떤가요??', '64862125654', '우체국');
+INSERT INTO Streamer VALUES ('hajamas', '구민교','rejbe12038', '클래식 음악 스트리머', '다들 클래식하게 살아보쉴? 클래식 음악 즐겨봐^^', '165637695313', '신한');
+INSERT INTO Streamer VALUES ('wolfback123', '신민기','erjndbhb123', 'pop/락/edm 위주 스트리머', NULL, '9856632441555', '국민');
+INSERT INTO Streamer VALUES ('grecklv123', '신나라','erqwe1297', 'R&B/발라드 자작곡 스트리머', '당신을 달래주는 음악, 신나라 음악', '9021587466331', '국민');
+INSERT INTO Streamer VALUES ('ghkdangel0123', '나천사','skscjstkghgh4567', '뉴에이지(이루마 팬) 스트리머', '이루마 위주 뉴에이지 음악 들려드립니다~', '333305478936', '카카오뱅크');
+INSERT INTO Streamer VALUES ('devil666', '악마력','dkfkooe54996', '힙합/랩/자작곡', '요 맨 왑썹 부러~~~~~마이 뮤직 이즈 소ㅇㅇㅇㅇㅇ울~!', '456898722135', '신한');
+INSERT INTO Streamer VALUES ('tttl7893', '빛나리','gfsjdla0053', '빛나는 인생을 사는 빛나리', '빛나는 음악, 저의 자작곡을 드려드립니다~ / 클래식 기타 자작곡', '96652113456', '우리');
+INSERT INTO Streamer VALUES ('blondh03973', '황금','vmkdd1995', '금빛 스트리머', '황금의 음악 방송! 댄스/클럽 음악으로 분위기 업업!!', '2654988775', '기업');
+INSERT INTO Streamer VALUES ('pyttttttthon3', '박이선','tkfoddl1256', '파이썬으로 음악을 만드는 스트리머', '사실 못합니다', '89653332164', '농협');
+
+commit;
+
+
+
+CREATE TABLE MonthlyFee (
+  category VARCHAR2(10) CHECK(category IN('브론즈','실버','골드')),
+  fee NUMBER(6) NOT NULL,
+  CONSTRAINT MonthlyFee_PK PRIMARY KEY (category));
+
+INSERT INTO MonthlyFee VALUES ('골드', 7000);
+INSERT INTO MonthlyFee VALUES ('실버', 5000);
+INSERT INTO MonthlyFee VALUES ('브론즈', 3000);
+
+commit;
+
+
+
+Create Sequence soundtrack_num
+START WITH 1;
+
+CREATE TABLE SoundTrack (
+  num NUMBER,
+  name VARCHAR2(40) NOT NULL,
+  release_date DATE Default SYSDATE,
+  genre VARCHAR2(20) NOT NULL,
+  upload_date DATE Default SYSDATE NOT NULL,
+  upload_singer VARCHAR2(15) NOT NULL,
+  CONSTRAINT SoundTrack_PK PRIMARY KEY (num),
+  CONSTRAINT SoundTrack_FK FOREIGN KEY (upload_singer) REFERENCES Singer(singer_ID),
+  constraint Sound_uni_singer UNIQUE (name,upload_singer));
+
+INSERT INTO SoundTrack VALUES (soundtrack_num.nextval, '벚꽃엔딩', TO_DATE('2012/03/28','YYYY/MM/DD'), '밴드', TO_DATE('2012/03/29 12:00:00','YYYY/MM/DD HH24:MI:SS'), 'kuijki098');
+INSERT INTO SoundTrack VALUES (soundtrack_num.nextval, 'Perfect Christmas', TO_DATE('2013/12/18','YYYY/MM/DD'), '발라드', TO_DATE('2013/12/18 18:00:00','YYYY/MM/DD HH24:MI:SS'), 'rufjvn243');
+INSERT INTO SoundTrack VALUES (soundtrack_num.nextval, '야생화', TO_DATE('2014/03/27','YYYY/MM/DD'), '발라드', TO_DATE('2014/03/27 00:00:00','YYYY/MM/DD HH24:MI:SS'), 'cfkjdalh767');
+INSERT INTO SoundTrack VALUES (soundtrack_num.nextval, '스토커', TO_DATE('2014/11/18','YYYY/MM/DD'), '발라드', TO_DATE('2014/11/19 00:00:00','YYYY/MM/DD HH24:MI:SS'), 'erdfcvc87');
+INSERT INTO SoundTrack VALUES (soundtrack_num.nextval, 'Ah choo', TO_DATE('2015/09/30','YYYY/MM/DD'), '댄스', TO_DATE('2015/10/01 00:00:00','YYYY/MM/DD HH24:MI:SS'), 'bmhgjr65');
+INSERT INTO SoundTrack VALUES (soundtrack_num.nextval, 'Dream', TO_DATE('2016/01/06','YYYY/MM/DD'), '발라드', TO_DATE('2016/01/07 00:00:00','YYYY/MM/DD HH24:MI:SS'), 'cbvgtr67');
+INSERT INTO SoundTrack VALUES (soundtrack_num.nextval, 'Bye bye my blue', TO_DATE('2016/06/19','YYYY/MM/DD'), '발라드', TO_DATE('2016/06/20 12:00:00','YYYY/MM/DD HH24:MI:SS'), 'gjgyry342');
+INSERT INTO SoundTrack VALUES (soundtrack_num.nextval, '물뿌리기', TO_DATE('2016/12/24','YYYY/MM/DD'), '댄스', TO_DATE('2016/12/25 12:00:00','YYYY/MM/DD HH24:MI:SS'), 'cheoqkr43');
+INSERT INTO SoundTrack VALUES (soundtrack_num.nextval, '팔레트', TO_DATE('2017/04/20','YYYY/MM/DD'), '발라드', TO_DATE('2017/04/21 00:00:00','YYYY/MM/DD HH24:MI:SS'), 'jkkvk943');
+INSERT INTO SoundTrack VALUES (soundtrack_num.nextval, '지니어스', TO_DATE('2017/06/28','YYYY/MM/DD'), '댄스', TO_DATE('2017/06/29 00:00:00','YYYY/MM/DD HH24:MI:SS'), 'rbhwe148');
+INSERT INTO SoundTrack VALUES (soundtrack_num.nextval, '빨간 맛', TO_DATE('2017/07/08','YYYY/MM/DD'), '댄스', TO_DATE('2017/07/09 00:00:00','YYYY/MM/DD HH24:MI:SS'), 'vbdhdr42');
+INSERT INTO SoundTrack VALUES (soundtrack_num.nextval, '미안해', TO_DATE('2017/12/28','YYYY/MM/DD'), '발라드', TO_DATE('2017/12/29 00:00:00','YYYY/MM/DD HH24:MI:SS'), 'tunfjg87');
+INSERT INTO SoundTrack VALUES (soundtrack_num.nextval, '롤러코스터', TO_DATE('2018/01/16','YYYY/MM/DD'), '댄스', TO_DATE('2018/01/17 12:00:00','YYYY/MM/DD HH24:MI:SS'), 'bkfjhydj45');
+INSERT INTO SoundTrack VALUES (soundtrack_num.nextval, '너를 만나', TO_DATE('2018/10/28','YYYY/MM/DD'), '발라드', TO_DATE('2018/10/29 18:00:00','YYYY/MM/DD HH24:MI:SS'), 'ertuo757');
+INSERT INTO SoundTrack VALUES (soundtrack_num.nextval, '마이구미', TO_DATE('2018/11/15','YYYY/MM/DD'), '댄스', TO_DATE('2018/11/16 12:00:00','YYYY/MM/DD HH24:MI:SS'), 'pineTree04');
+INSERT INTO SoundTrack VALUES (soundtrack_num.nextval, '어떤이의꿈', TO_DATE('2018/11/16','YYYY/MM/DD'), '밴드', TO_DATE('2018/11/17 00:00:00','YYYY/MM/DD HH24:MI:SS'), 'skfo0243');
+INSERT INTO SoundTrack VALUES (soundtrack_num.nextval, '아낙네', TO_DATE('2018/11/25','YYYY/MM/DD'), '랩', TO_DATE('2018/11/26 12:00:00','YYYY/MM/DD HH24:MI:SS'), 'djgtee243');
+INSERT INTO SoundTrack VALUES (soundtrack_num.nextval, '나만봄', TO_DATE('2019/04/01','YYYY/MM/DD'), '발라드', TO_DATE('2019/04/02 00:00:00','YYYY/MM/DD HH24:MI:SS'),'ewqdsa12');
+INSERT INTO SoundTrack VALUES (soundtrack_num.nextval, '돈터치', TO_DATE('2019/04/26','YYYY/MM/DD'), '댄스', TO_DATE('2019/04/27 00:00:00','YYYY/MM/DD HH24:MI:SS'), 'wjnf12');
+INSERT INTO SoundTrack VALUES (soundtrack_num.nextval, '지갑', TO_DATE('2019/05/26','YYYY/MM/DD'), '댄스', TO_DATE('2019/05/27 12:00:00','YYYY/MM/DD HH24:MI:SS'), 'zxcv1256');
+
+commit;
+
+
+
+CREATE TABLE Manager (
+  manager_ID VARCHAR2(15),
+  name VARCHAR2(10) NOT NULL,
+  password VARCHAR2(20) NOT NULL,
+  account_num VARCHAR2(50) NOT NULL,
+  bank VARCHAR2(30) NOT NULL,
+  address VARCHAR2(200),
+  phon VARCHAR2(13) NOT NULL UNIQUE,
+  resident_num VARCHAR2(14) NOT NULL UNIQUE,
+  CONSTRAINT Manager_PK PRIMARY KEY (manager_ID),
+  constraint Manager_uni_acc UNIQUE (account_num,bank));
+
+INSERT INTO Manager VALUES ('gldie0432', '조용재','akdf021', '45991285402', '국민', '전남 여수시 학동 100', '010-4444-4444', '630219-1478715');
+INSERT INTO Manager VALUES ('mnbv098', '이규영','asdhfj098', '45991285403', '국민', '세종특별자치시 조치원읍 이화 1로 12 신흥주공아파트 201동 1002호', '010-1212-1212', '980319-3627484');
+INSERT INTO Manager VALUES ('nbvc987', '이규수','dsyej987', '11097685402', '신한', '충청남도 금산군 가덕길 1', '010-5674-2748', '780221-1263523');
+INSERT INTO Manager VALUES ('bcvx453', '이윤종','fhtr435', '11097685403', '신한', '대전광역시 서구 관저동 리슈빌아파트 104동 1701호', '010-9343-7578', '991121-2873526');
+INSERT INTO Manager VALUES ('vcxz372', '정어리','hkfjd879', '35297685401', '농협', '경기도 가평군 가랫골길 15', '010-7887-9876', '880211-1243625');
+INSERT INTO Manager VALUES ('rlarksp23', '김가네','rlasksj78', '35297685402', '농협', '대구광역시 달성군 다사로 2', '010-5334-2534', '911021-2265443');
+INSERT INTO Manager VALUES ('shwlsrn22', '노진구','shwlsrd21', '12297685301', '우리', '부산광역시 동구 고관로 3', '010-9889-0303', '921110-1435526');
+INSERT INTO Manager VALUES ('towlstkd83', '개진상','rowlstkd38', '35297685403', '농협', '전라남도 보성군 가곡길 4', '010-1828-6838', '970312-2193627');
+INSERT INTO Manager VALUES ('rnjsdhwn37', '권오중','rnjswhdnw26', '12297685302', '우리', '경상북도 안동시 큰광음길 1', '010-7868-2932', '970421-1263927');
+INSERT INTO Manager VALUES ('rlagksmf92', '김하늘','rlagksmf28', '11097685404', '신한', '대전광역시 유성구 가정로 89번길', '010-4738-1983', '981231-2263837');
+INSERT INTO Manager VALUES ('dhwldnjs88', '오지원','dhwlsndj18', '11097685405', '신한', '강원도 동해시 감추1길', '010-7621-8273', '950622-1267483');
+INSERT INTO Manager VALUES ('dlskfl87', '이나리','dlskflei82', '35297685404', '농협', '충청북도 음성군 약현길26번길', '010-1928-1729', '960301-1236482');
+INSERT INTO Manager VALUES ('ghksrudxo56', '환경태','ghksurdox37', '12297685303', '우리', '경상북도 영천시 망정2길', '010-9281-3451', '800708-1271837');
+INSERT INTO Manager VALUES ('vkekrvkekr38', '김과녁','vkekrvke82', '35297685406', '농협', '경상남도 창원시 의창구 명서로30번길', '010-2738-4965', '850522-2745227');
+INSERT INTO Manager VALUES ('dlruddud65', '이경왕','dlruddhdd72', '35297685407', '농협', '제주특별자치도 서귀포시 마소물로8번길', '010-3521-7688', '860312-1558754');
+INSERT INTO Manager VALUES ('dlgkdis82', '이하얀','dlgkd2817', '12297685344', '우리', '부산광역시 해운대구 구남로18번길', '010-1836-1028', '960918-1362435');
+INSERT INTO Manager VALUES ('dhtkdwls36', '오상진','dhtkdw1928','45991285404', '국민', '인천광역시 동구 새천년로70번길', '010-1828-1254', '880920-2371525');
+INSERT INTO Manager VALUES ('dlvkfkd38', '이파랑','dlvkfkd19','45991285405', '국민', '인천광역시 서구 여우재로75번길', '010-2374-7958', '890815-1291525');
+INSERT INTO Manager VALUES ('whdnfl92', '조우리','whdnsk27','45991285406', '국민', '경기도 부천시 산업로120번길', '010-6864-3827', '850702-2298825');
+INSERT INTO Manager VALUES ('gkflsk22', '하리나','gkskwl12','11097685406', '신한', '충청남도 보령시 큰오랏3길', '010-2716-2748', '820413-1298829');
+
+commit;
+
+
+
+Create Sequence site_num
+START WITH 1;
+
+Create Table    Site (
+num 	Number,
+rink 	Varchar2(400) Not Null UNIQUE, 
+name 	Varchar2(40) Not Null,
+ceo 	Varchar2(10), 
+constraint Site_p_num_pk Primary Key(num));
+CREATE INDEX Site_name_idx ON Site(name);
+
+INSERT INTO Site VALUES (site_num.nextval,'www.danawa.com','다나와','손윤환');
+INSERT INTO Site VALUES (site_num.nextval,'www.gmaket.com','G마켓','변광윤');
+INSERT INTO Site VALUES (site_num.nextval,'www.pping.com','행복쇼핑','김기백');
+INSERT INTO Site VALUES (site_num.nextval,'www.thehyundai.com','현대백화점','이동호');
+INSERT INTO Site VALUES (site_num.nextval,'shopping.interpark.com','인터파크','강동화');
+INSERT INTO Site VALUES (site_num.nextval,'www.11st.co.kr','11번가','이상호');
+INSERT INTO Site VALUES (site_num.nextval,'www.g9.co.kr','G9','변광윤');
+INSERT INTO Site VALUES (site_num.nextval,'itempage3.auction.co.kr','옥션','변광윤');
+INSERT INTO Site VALUES (site_num.nextval,'www.coupang.com','쿠팡','김범석');
+INSERT INTO Site VALUES (site_num.nextval,'www.tmon.co.kr','티몬','이재후');
+INSERT INTO Site VALUES (site_num.nextval,'front.wemakeprice.com','위메프','박은상');
+INSERT INTO Site VALUES (site_num.nextval,'comxcom.co.kr','컴바이컴','한영균');
+INSERT INTO Site VALUES (site_num.nextval,'shinsegaemall.ssg.com','신세계몰','최우정');
+INSERT INTO Site VALUES (site_num.nextval,'cclcom.co.kr','씨씨엘컴','김영희');
+INSERT INTO Site VALUES (site_num.nextval,'sevenstar153.com','세븐스타153','윤준호');
+INSERT INTO Site VALUES (site_num.nextval,'www.smelchi.com','멸치쇼핑','남양우');
+INSERT INTO Site VALUES (site_num.nextval,'www.etland.co.kr','전자랜드','홍봉철');
+INSERT INTO Site VALUES (site_num.nextval,'www.e-himart.co.kr','하이마트','이동우');
+INSERT INTO Site VALUES (site_num.nextval,'www.nsmall.com','NSmall','박용후');
+INSERT INTO Site VALUES (site_num.nextval,'tworim.com','투림','임경록');
+
+commit;
+
+
+
+Create Sequence product_num
+START WITH 1;
+
+Create Table    Product (
+num 	Number,
+name 	Varchar2(100) Not Null, 
+pro_date DATE Default SYSDATE,
+company Varchar2(40) Not Null,
+pro_image Varchar2(200) Default 'C:\\Server\\Main\\Desktop\\DB\\blank.png' NOT Null,
+category Varchar2(20) CHECK(category IN('이어폰','헤드셋','스피커','사운드바')),
+enroll_site Number Not Null,
+enroll_date Date Default SYSDATE NOT Null,
+price INTEGER Not Null,
+stock_num INTEGER DEFAULT 0 NOT Null,
+constraint Product_p_num_pk Primary Key(NUM),
+constraint Product_e_site_fk Foreign Key(enroll_site) references Site(num),
+constraint Product_uni_ps UNIQUE (name,enroll_site));
+CREATE INDEX Product_name_idx ON Product(name);
+CREATE INDEX Product_price_idx ON Product(price);
+
+
+INSERT INTO Product VALUES (product_num.nextval,'브리츠액세서리즈 BA-R9',TO_DATE('2014/01/14','YYYY/MM/DD'),'Britz','C:\\Server\\Main\\Desktop\\DB\\bar9.png','사운드바',15,TO_DATE('2014/01/14 11:02:36','YYYY/MM/DD HH24:MI:SS'),74500,50);
+INSERT INTO Product VALUES (product_num.nextval,'브리츠액세서리즈 BA-R9',TO_DATE('2014/01/14','YYYY/MM/DD'),'Britz','C:\\Server\\Main\\Desktop\\DB\\bar9.png','사운드바',18,TO_DATE('2014/01/15 12:13:46','YYYY/MM/DD HH24:MI:SS'),74400,100);
+INSERT INTO Product VALUES (product_num.nextval,'STORMX TITAN 인-이어',TO_DATE('2017/01/12','YYYY/MM/DD'),'제닉스','C:\\Server\\Main\\Desktop\\DB\\titaninear.png','이어폰',5,TO_DATE('2017/02/17 21:00:46','YYYY/MM/DD HH24:MI:SS'),87000,150);
+INSERT INTO Product VALUES (product_num.nextval,'MAXTILL SB-200',TO_DATE('2017/03/23','YYYY/MM/DD'),'MAXTILL',Default,'사운드바',20,TO_DATE('2017/04/02 21:29:06','YYYY/MM/DD HH24:MI:SS'),13500,400);
+INSERT INTO Product VALUES (product_num.nextval,'VOID PRO RGB WIRELESS',TO_DATE('2017/09/14','YYYY/MM/DD'),'CORSAIR','C:\\Server\\Main\\Desktop\\DB\\voidpro.png','헤드셋',13,TO_DATE('2017/12/24 12:12:34','YYYY/MM/DD HH24:MI:SS'),179000,120);
+INSERT INTO Product VALUES (product_num.nextval,'STORMX TITAN 인-이어',TO_DATE('2017/01/12','YYYY/MM/DD'),'제닉스','C:\\Server\\Main\\Desktop\\DB\\titaninear.png','이어폰',8,TO_DATE('2018/02/27 11:02:36','YYYY/MM/DD HH24:MI:SS'),74500,50);
+INSERT INTO Product VALUES (product_num.nextval,'브리츠액세서리즈 BR-2500M2',TO_DATE('2017/08/08','YYYY/MM/DD'),'Britz','C:\\Server\\Main\\Desktop\\DB\\br2500M2.png','스피커',10,TO_DATE('2018/08/13 03:14:32','YYYY/MM/DD HH24:MI:SS'),144000,72);
+INSERT INTO Product VALUES (product_num.nextval,'Creative PEBBLE 2.0 스피커',TO_DATE('2019/03/13','YYYY/MM/DD'),'제이웍스','C:\\Server\\Main\\Desktop\\DB\\pebble.png','스피커',19,TO_DATE('2019/03/27 09:00:13','YYYY/MM/DD HH24:MI:SS'),24500,150);
+INSERT INTO Product VALUES (product_num.nextval,'갤럭시 버즈 SM-R170',default,'삼성전자','C:\\Server\\Main\\Desktop\\DB\\buzsmr170.png','이어폰',1,default,158400,100);
+INSERT INTO Product VALUES (product_num.nextval,'갤럭시 버즈 SM-R170',default,'삼성전자','C:\\Server\\Main\\Desktop\\DB\\buzsmr170.png','이어폰',12,default,199000,150);
+INSERT INTO Product VALUES (product_num.nextval,'에어팟 2세대 MV7N2KH/A',default,'애플','C:\\Server\\Main\\Desktop\\DB\\airpot2MV7N2KHA.png','이어폰',1,default,249000,200);
+INSERT INTO Product VALUES (product_num.nextval,'갤럭시 버즈 SM-R170',default,'삼성전자','C:\\Server\\Main\\Desktop\\DB\\buzsmr170.png','이어폰',7,default,125400,50);
+INSERT INTO Product VALUES (product_num.nextval,'에어팟 2세대 MV7N2KH/A',default,'애플','C:\\Server\\Main\\Desktop\\DB\\airpot2MV7N2KHA.png','이어폰',16,default,237000,20);
+INSERT INTO Product VALUES (product_num.nextval,'HACKER B510U 버추얼 7.1 진동 LED 게이밍',default,'ABKO',Default,'헤드셋',2,default,30000,100);
+INSERT INTO Product VALUES (product_num.nextval,'QCY T1S',default,'QCY',Default,'이어폰',14,default,35000,600);
+INSERT INTO Product VALUES (product_num.nextval,'HACKER B510U 버추얼 7.1 진동 LED 게이밍',default,'ABKO',Default,'헤드셋',5,default,40900,150);
+INSERT INTO Product VALUES (product_num.nextval,'에어팟 2세대 MV7N2KH/A',default,'애플','C:\\Server\\Main\\Desktop\\DB\\airpot2MV7N2KHA.png','이어폰',13,default,269000,230);
+INSERT INTO Product VALUES (product_num.nextval,'에어팟 2세대 MV7N2KH/A',default,'애플','C:\\Server\\Main\\Desktop\\DB\\airpot2MV7N2KHA.png','이어폰',17,default,309000,100);
+INSERT INTO Product VALUES (product_num.nextval,'HACKER B510U 버추얼 7.1 진동 LED 게이밍',default,'ABKO',Default,'헤드셋',10,default,30900,102);
+INSERT INTO Product VALUES (product_num.nextval,'QCY T1S',default,'QCY',Default,'이어폰',3,default,20900,400);
+
+commit;
+
+
+
+Create Sequence post_num
+START WITH 1;
+
+Create Table    QnAPost (
+num 	Number,
+title Varchar2(100) Not Null, 
+content Varchar2(1000) Not Null, 
+q_date   Date Default SYSDATE NOT Null,
+quser_ID Varchar2(15) Not Null,
+a_content  Varchar2(1000),
+a_date Date Default SYSDATE,
+amanager_ID Varchar2(15),
+constraint QnAPost_con_num_pk Primary Key(num),
+constraint QnAPost_quser_id_fk Foreign Key(quser_ID) references musicapp_user(user_id),
+constraint QnAPost_amanager_id_fk Foreign key(amanager_ID) references manager(manager_id),
+constraint check_date CHECK( a_date > q_date ));
+
+
+INSERT INTO QnAPost VALUES (post_num.nextval,'회원탈퇴','회원탈퇴는 어떻게 하는지 알고 싶습니다.',TO_DATE('2010/05/17 13:04:21','YYYY/MM/DD HH24:MI:SS'),'zxcv1256',Null,Null,Null);
+INSERT INTO QnAPost VALUES (post_num.nextval,'비밀번호 확인','비밀번호는 어떻게 다시 찾나요?',TO_DATE('2010/11/08 12:04:21','YYYY/MM/DD HH24:MI:SS'),'wjnf12','비밀번호 찾기를 통해 본인임이 확인되면 비밀번호를 즉시 변경하실 수 있습니다.',TO_DATE('2010/11/09 14:04:00','YYYY/MM/DD HH24:MI:SS'),'gldie0432');
+INSERT INTO QnAPost VALUES (post_num.nextval,'휴대폰번호를 연락처로 등록','휴대폰번호를 연락처로 등록하고 싶은데 어떻게 하나요?',TO_DATE('2011/04/24 12:04:31','YYYY/MM/DD HH24:MI:SS'),'pineTree04',Null,Null,Null);
+INSERT INTO QnAPost VALUES (post_num.nextval,'회원탈퇴 후 과거에 결제한 정보','회원탈퇴 후 과거에 결제한 정보를 알 수 있나요?',TO_DATE('2011/05/12 14:57:21','YYYY/MM/DD HH24:MI:SS'),'rbhwe148',Null,Null,Null);
+INSERT INTO QnAPost VALUES (post_num.nextval,'아이디를 변경','아이디를 변경하고 싶은데 어떻게 해야 하나요?',TO_DATE('2012/04/12 18:56:21','YYYY/MM/DD HH24:MI:SS'),'cheoqkr43','아이디 변경 서비스를 제공하지 않습니다.',TO_DATE('2012/04/13 18:49:21','YYYY/MM/DD HH24:MI:SS'),'gldie0432');
+INSERT INTO QnAPost VALUES (post_num.nextval,'주소변경','이벤트에 참여했는데 주소는 어디서 수정하나요?',TO_DATE('2012/04/26 09:24:21','YYYY/MM/DD HH24:MI:SS'),'ewnqw44',Null,Null,Null);
+INSERT INTO QnAPost VALUES (post_num.nextval,'버퍼링','방송을 시청할 때 버퍼링이 자주 생깁니다.',TO_DATE('2013/04/15 23:34:00','YYYY/MM/DD HH24:MI:SS'),'replayms','개인 인터넷 환경에 맞는 적정 화질의 방송을 선택하여 시청하여 주시기 바랍니다.',TO_DATE('2013/04/16 09:20:20','YYYY/MM/DD HH24:MI:SS'),'nbvc987');
+INSERT INTO QnAPost VALUES (post_num.nextval,'후원금','선물받은 후원금 확인은 어디서 하나요?',TO_DATE('2013/10/21 18:34:21','YYYY/MM/DD HH24:MI:SS'),'hajamas','홈페이지 내 정보> 후원금에서 확인 가능합니다.',TO_DATE('2013/10/22 13:35:21','YYYY/MM/DD HH24:MI:SS'),'bcvx453');
+INSERT INTO QnAPost VALUES (post_num.nextval,'해외 결제','해외에서 카드결제가 가능 한가요?',TO_DATE('2014/03/11 11:08:11','YYYY/MM/DD HH24:MI:SS'),'wolfback123','해외 이용자 분들께서도 VISA, Master 카드를 통해 결제 가능합니다.',TO_DATE('2014/03/12 14:11:31','YYYY/MM/DD HH24:MI:SS'),'bcvx453');
+INSERT INTO QnAPost VALUES (post_num.nextval,'환불 기간','환불을 신청했는데 환불 기간은 얼마나 소요되나요?',TO_DATE('2014/05/20 16:29:22','YYYY/MM/DD HH24:MI:SS'),'grecklv123','최대 2일 이내 입니다.',TO_DATE('2014/05/21 15:28:52','YYYY/MM/DD HH24:MI:SS'),'rlagksmf92');
+INSERT INTO QnAPost VALUES (post_num.nextval,'배송중인 상품 위치','배송중인 상품의 위치를 확인하고 싶어요.',TO_DATE('2015/07/13 10:30:21','YYYY/MM/DD HH24:MI:SS'),'lkjpoi203',Null,Null,Null);
+INSERT INTO QnAPost VALUES (post_num.nextval,'판매자 문의','판매자에게 어떻게 문의 할 수 있나요?',TO_DATE('2015/08/19 09:24:51','YYYY/MM/DD HH24:MI:SS'),'rydhxm2938','QnA게시판으로 문의 가능합니다.',TO_DATE('2015/08/20 11:20:12','YYYY/MM/DD HH24:MI:SS'),'rlagksmf92');
+INSERT INTO QnAPost VALUES (post_num.nextval,'본인인증','본인 인증을 할 수 없다고 나옵니다. 어떻게 해야 되나요?',TO_DATE('2015/09/11 17:02:21','YYYY/MM/DD HH24:MI:SS'),'hoseo21','이미 본인 인증된 ID가 있습니다. 다시 확인 부탁드립니다.',TO_DATE('2015/09/12 10:30:21','YYYY/MM/DD HH24:MI:SS'),'dlskfl87');
+INSERT INTO QnAPost VALUES (post_num.nextval,'휴일 상품 배송','휴일에 상품을 받을 수 있나요?',TO_DATE('2016/02/21 12:44:21','YYYY/MM/DD HH24:MI:SS'),'ghiee126',Null,Null,Null);
+INSERT INTO QnAPost VALUES (post_num.nextval,'상품별 배송비','배송비는 상품별로 각각 적용되나요?',TO_DATE('2016/04/04 11:24:21','YYYY/MM/DD HH24:MI:SS'),'korpark','상품별로 각각 적용됩니다.',TO_DATE('2016/04/05 12:34:51','YYYY/MM/DD HH24:MI:SS'),'dlskfl87');
+INSERT INTO QnAPost VALUES (post_num.nextval,'반품 및 교환','상품 포장을 훼손하여 반품/교환이 안 된다고 합니다.',TO_DATE('2016/04/12 14:50:11','YYYY/MM/DD HH24:MI:SS'),'jujupark','상품포장 자체가 상품의 가치 중의 하나로 인정받을 만한 상품의 상품 포장을 훼손하였을 경우 반품 및 환불이 불가능 합니다.',TO_DATE('2016/04/13 14:51:41','YYYY/MM/DD HH24:MI:SS'),'dlvkfkd38');
+INSERT INTO QnAPost VALUES (post_num.nextval,'개명 시 회원정보','개명을 했습니다. 회원정보를 어떻게 수정하나요?',TO_DATE('2017/07/28 15:30:21','YYYY/MM/DD HH24:MI:SS'),'ghtjqo123','홈페이지 내 정보> 회원정보 수정에서 가능합니다.',TO_DATE('2017/07/29 14:30:21','YYYY/MM/DD HH24:MI:SS'),'dlvkfkd38');
+INSERT INTO QnAPost VALUES (post_num.nextval,'나이 제한','배송 시, 주소 제한이 있나요?',TO_DATE('2017/09/02 10:04:27','YYYY/MM/DD HH24:MI:SS'),'sujilove29','주소 제한 없이 전국에서 이용 가능합니다.',TO_DATE('2017/09/03 11:24:37','YYYY/MM/DD HH24:MI:SS'),'gkflsk22');
+INSERT INTO QnAPost VALUES (post_num.nextval,'아이핀 인증','아이핀 인증이란 무엇인가요?',TO_DATE('2018/10/27 18:29:56','YYYY/MM/DD HH24:MI:SS'),'jinmoon00','대면확인이 불가능한 인터넷상에서 주민등록번호를 대신하여 본인임을 확인받을 수 있는 사이버 신원 확인번호입니다.',TO_DATE('2018/10/28 15:11:56','YYYY/MM/DD HH24:MI:SS'),'gkflsk22');
+INSERT INTO QnAPost VALUES (post_num.nextval,'임시 비밀번호','임시 비밀번호로 로그인이 되지 않습니다.',TO_DATE('2019/02/22 09:48:27','YYYY/MM/DD HH24:MI:SS'),'khn1237',Null,Null,Null);
+
+commit;
+
+
+
+Create Table    Streamer_rank (
+category 	Varchar2(10) CHECK(category IN('비기너','베스트','파트너')), 
+viewer_num Number(4) Not Null,
+streaming_time Number(2) Not Null,
+streaming_num Number(2) Not Null,
+fee Number(2) Not Null Unique,
+constraint Streamer_rank_c_name_pk Primary Key(category));
+
+INSERT INTO Streamer_rank VALUES ('파트너',5000,50,50,40);
+INSERT INTO Streamer_rank VALUES ('베스트',2500,25,25,50);
+INSERT INTO Streamer_rank VALUES ('비기너',0,0,0,60);
+
+commit;
+
+
+
+Create Sequence streaming_num
+START WITH 1;
+
+Create Table    Streaming (
+num Number, 
+title 	Varchar2(100) Not Null,
+start_t   Date Default SYSDATE NOT Null,
+end_t Date Default SYSDATE NOT Null,
+streamer_ID Varchar2(15) Not Null,
+constraint Streaming_s_num_pk Primary Key(num),
+constraint Streaming_streamer_id_fk Foreign Key(streamer_ID) references streamer(streamer_id),
+constraint check_time CHECK( start_t < end_t ));
+
+
+INSERT INTO Streaming VALUES (streaming_num.nextval,'쏘미the뭐니를 능가하는 데빌맨의 자작곡...쏘울 ㅇㅣ즈 베스트',TO_DATE('2012/06/25 02:28:16','YYYY/MM/DD HH24:MI:SS'),TO_DATE('2012/06/25 03:01:53','YYYY/MM/DD HH24:MI:SS'), 'devil666' );
+INSERT INTO Streaming VALUES (streaming_num.nextval,'투더문 ost 메들리 방송합니다',TO_DATE('2012/11/17 01:43:17','YYYY/MM/DD HH24:MI:SS'),TO_DATE('2012/11/17 03:01:12','YYYY/MM/DD HH24:MI:SS'),'xodud0728');
+INSERT INTO Streaming VALUES (streaming_num.nextval,'2014핫이슈 클럽노래음악 모음',TO_DATE('2014/08/24 19:30:15','YYYY/MM/DD HH24:MI:SS'),TO_DATE('2014/08/24 19:54:21','YYYY/MM/DD HH24:MI:SS'), 'blondh03973' );
+INSERT INTO Streaming VALUES (streaming_num.nextval,'[TEST] 방송 마이크 TEST',TO_DATE('2015/04/13 01:52:35','YYYY/MM/DD HH24:MI:SS'),TO_DATE('2015/04/13 02:15:36','YYYY/MM/DD HH24:MI:SS'), 'pyttttttthon3' );
+INSERT INTO Streaming VALUES (streaming_num.nextval,'헤비메탈 음악 추천방송',TO_DATE('2015/08/12 10:42:22','YYYY/MM/DD HH24:MI:SS'),TO_DATE('2015/08/12 12:05:28','YYYY/MM/DD HH24:MI:SS'), 'ewnqw44' );
+INSERT INTO Streaming VALUES (streaming_num.nextval,'[공포]소름끼치는 오르골 공포 음악',TO_DATE('2016/11/14 08:00:00','YYYY/MM/DD HH24:MI:SS'),TO_DATE('2016/11/14 17:30:00','YYYY/MM/DD HH24:MI:SS'), 'replayms' );
+INSERT INTO Streaming VALUES (streaming_num.nextval,'[발라드] 100곡 방송 시작',TO_DATE('2017/07/07 23:37:00','YYYY/MM/DD HH24:MI:SS'),TO_DATE('2017/07/08 00:12:56','YYYY/MM/DD HH24:MI:SS'),'alfo1105');
+INSERT INTO Streaming VALUES (streaming_num.nextval,'폐가 체험 호러스팟 bgm잇!',TO_DATE('2018/02/03 01:22:15','YYYY/MM/DD HH24:MI:SS'),TO_DATE('2018/02/03 04:35:52','YYYY/MM/DD HH24:MI:SS'),'mad_head');
+INSERT INTO Streaming VALUES (streaming_num.nextval,'뀨뀨 귀욥뾰쨕 방송 시작했어염~^~^ 오늘은 사랑노래 메들리!',TO_DATE('2018/02/13 20:15:15','YYYY/MM/DD HH24:MI:SS'),TO_DATE('2018/02/14 01:54:40','YYYY/MM/DD HH24:MI:SS'),'skfo0519');
+INSERT INTO Streaming VALUES (streaming_num.nextval,'밤에 듣기 좋은 우리들의 감성 발라드 24곡',TO_DATE('2018/07/20 23:10:34','YYYY/MM/DD HH24:MI:SS'),TO_DATE('2018/07/21 00:45:22','YYYY/MM/DD HH24:MI:SS'), 'grecklv123' );
+INSERT INTO Streaming VALUES (streaming_num.nextval,'[외국 팝송]감성터지는 밤에 듣기 좋은 음악 추천 모음',TO_DATE('2018/10/04 17:05:43','YYYY/MM/DD HH24:MI:SS'),TO_DATE('2018/10/04 18:14:56','YYYY/MM/DD HH24:MI:SS'),'phy0524');
+INSERT INTO Streaming VALUES (streaming_num.nextval,'이루마(YIRUMA) 피아노 연주곡 BEST 20',TO_DATE('2018/11/12 18:32:50','YYYY/MM/DD HH24:MI:SS'),TO_DATE('2018/11/12 19:45:59','YYYY/MM/DD HH24:MI:SS'), 'ghkdangel0123' );
+INSERT INTO Streaming VALUES (streaming_num.nextval,'2018년도 인기 EDM 메들리',TO_DATE('2019/01/01 00:03:48','YYYY/MM/DD HH24:MI:SS'),TO_DATE('2019/01/01 01:10:52','YYYY/MM/DD HH24:MI:SS'), 'wolfback123' );
+INSERT INTO Streaming VALUES (streaming_num.nextval,'[클래식]카페에 어울리는 클래식 음악 추천방송',TO_DATE('2019/01/24 14:52:34','YYYY/MM/DD HH24:MI:SS'),TO_DATE('2019/01/24 15:54:29','YYYY/MM/DD HH24:MI:SS'), 'hajamas' );
+INSERT INTO Streaming VALUES (streaming_num.nextval,'처음 켜봐요 TEST',TO_DATE('2019/03/15 14:53:08','YYYY/MM/DD HH24:MI:SS'),TO_DATE('2019/03/15 15:05:54','YYYY/MM/DD HH24:MI:SS'),'alsdud1204');
+INSERT INTO Streaming VALUES (streaming_num.nextval,'[Cover]Billie Eilish - bad guy 연습 방송',TO_DATE('2019/04/14 20:48:11','YYYY/MM/DD HH24:MI:SS'),TO_DATE('2019/04/14 21:35:52','YYYY/MM/DD HH24:MI:SS'),'lgt1104');
+INSERT INTO Streaming VALUES (streaming_num.nextval,'최근에 제가 빠진 노래 같이 공유할까요?',TO_DATE('2019/05/05 11:52:51','YYYY/MM/DD HH24:MI:SS'),TO_DATE('2019/05/05 13:19:03','YYYY/MM/DD HH24:MI:SS'),'kyu0421');
+INSERT INTO Streaming VALUES (streaming_num.nextval,'[먹방] 도토리 1000개로 노래만들기',TO_DATE('2019/05/25 21:23:32','YYYY/MM/DD HH24:MI:SS'),default,'ewwqej31');
+INSERT INTO Streaming VALUES (streaming_num.nextval,'[자작곡] ~종강은 종강이를 차면 생기지~',TO_DATE('2019/05/26 22:57:11','YYYY/MM/DD HH24:MI:SS'),TO_DATE('2019/05/26 23:46:52','YYYY/MM/DD HH24:MI:SS'), 'tttl7893' );
+INSERT INTO Streaming VALUES (streaming_num.nextval,'[레드벨벳 사랑해]레드벨벳 음악 방송~!',TO_DATE('2019/05/26 22:39:08','YYYY/MM/DD HH24:MI:SS'),TO_DATE('2019/05/27 01:18:00','YYYY/MM/DD HH24:MI:SS'),'haeyyyyuum');
+
+commit;
+
+
+
+Create Table    Join (
+user_ID Varchar2(15) ,
+monthly_category 	Varchar2(10),
+join_date Date Default SYSDATE,
+payment_type Varchar2(15) CHECK(payment_type IN('휴대폰결제','카드결제','계좌이체')),
+payment_info Varchar2(40) Not Null,
+constraint Table_u_id_m_ca_date_pk Primary Key(user_ID,monthly_category,join_date),
+constraint Table_user_id_fk Foreign Key(user_ID) references musicapp_user(user_id),
+constraint Table_m_ca_fk Foreign Key(monthly_category) references monthlyfee(category));
+
+INSERT INTO Join VALUES ('lkjpoi203', '브론즈',TO_DATE('2017/04/26 23:54:24','YYYY/MM/DD HH24:MI:SS'), '휴대폰결제', '010-1201-2031');
+INSERT INTO Join VALUES ('rydhxm2938', '브론즈',TO_DATE('2017/05/31 12:34:55','YYYY/MM/DD HH24:MI:SS'), '휴대폰결제', '010-2048-2758');
+INSERT INTO Join VALUES ('hoseo21', '브론즈',TO_DATE('2018/01/30 22:43:51','YYYY/MM/DD HH24:MI:SS'), '카드결제', '6325849952559871');
+INSERT INTO Join VALUES ('korpark', '브론즈',TO_DATE('2018/04/22 13:39:42','YYYY/MM/DD HH24:MI:SS'), '계좌이체','256698556324');
+INSERT INTO Join VALUES ('jujupark', '골드',TO_DATE('2018/06/29 16:55:20','YYYY/MM/DD HH24:MI:SS'),'카드결제', '8954136411258765');
+INSERT INTO Join VALUES ('ghtjqo123', '실버',TO_DATE('2018/09/13 00:50:25','YYYY/MM/DD HH24:MI:SS'), '휴대폰결제','010-2351-4412');
+INSERT INTO Join VALUES ('sujilove29', '브론즈',TO_DATE('2018/10/04 15:29:08','YYYY/MM/DD HH24:MI:SS'), '카드결제','1023252078859654');
+INSERT INTO Join VALUES ('jinmoon00', '브론즈',TO_DATE('2018/11/02 23:45:03','YYYY/MM/DD HH24:MI:SS'), '휴대폰결제','010-5937-4462');
+INSERT INTO Join VALUES ('ghiee126', '브론즈',TO_DATE('2018/11/13 21:53:01','YYYY/MM/DD HH24:MI:SS'), '휴대폰결제','010-0091-1004');
+INSERT INTO Join VALUES ('khn1237', '골드',TO_DATE('2018/12/06 16:32:15','YYYY/MM/DD HH24:MI:SS'), '계좌이체','89665234415');
+INSERT INTO Join VALUES ('lkjpoi203', '실버',TO_DATE('2017/05/26 23:54:24','YYYY/MM/DD HH24:MI:SS'), '계좌이체','100032569745');
+INSERT INTO Join VALUES ('rydhxm2938', '골드',TO_DATE('2017/07/30 12:34:55','YYYY/MM/DD HH24:MI:SS'), '휴대폰결제', '010-2048-2758');
+INSERT INTO Join VALUES ('hoseo21', '실버',TO_DATE('2018/03/30 22:43:51','YYYY/MM/DD HH24:MI:SS'), '카드결제', '6325849952559871');
+INSERT INTO Join VALUES ('korpark', '골드',TO_DATE('2018/05/22 13:39:42','YYYY/MM/DD HH24:MI:SS'), '휴대폰결제','010-2948-7471');
+INSERT INTO Join VALUES ('jujupark', '실버',TO_DATE('2018/07/29 16:55:20','YYYY/MM/DD HH24:MI:SS'),'계좌이체','325661444000886');
+INSERT INTO Join VALUES ('ghtjqo123', '브론즈',TO_DATE('2018/10/13 00:50:25','YYYY/MM/DD HH24:MI:SS'), '휴대폰결제','010-2351-4412');
+INSERT INTO Join VALUES ('sujilove29', '실버',TO_DATE('2018/11/04 15:29:08','YYYY/MM/DD HH24:MI:SS'), '카드결제','1023252078859654');
+INSERT INTO Join VALUES ('jinmoon00', '실버',TO_DATE('2018/12/02 23:45:03','YYYY/MM/DD HH24:MI:SS'), '계좌이체','7895587436210');
+INSERT INTO Join VALUES ('ghiee126', '골드',TO_DATE('2018/12/13 21:53:01','YYYY/MM/DD HH24:MI:SS'), '휴대폰결제','010-0091-1004');
+INSERT INTO Join VALUES ('khn1237', '브론즈',TO_DATE('2018/02/06 16:32:15','YYYY/MM/DD HH24:MI:SS'), '카드결제','4456952275146554');
+
+
+commit;
+
+
+
+Create Table Play (
+user_ID Varchar2(15),
+play_num Number,
+play_date Date Default SYSDATE,
+constraint Play_u_ID_p_num_date_pk Primary key(user_ID,play_num,play_date),
+constraint Play_user_ID_fk Foreign Key(user_ID) references musicapp_user(user_id),
+constraint Play_play_num_fk Foreign Key(play_num) references SoundTrack(num));
+
+INSERT INTO Play VALUES ('zxcv1256',1, TO_DATE('2018/02/18 12:30:20','YYYY/MM/DD HH24:MI:SS'));
+INSERT INTO Play VALUES ('wjnf12',2, TO_DATE('2018/03/01 13:03:40','YYYY/MM/DD HH24:MI:SS'));
+INSERT INTO Play VALUES ('pineTree04',3, TO_DATE('2018/03/02 14:29:40','YYYY/MM/DD HH24:MI:SS'));
+INSERT INTO Play VALUES ('rbhwe148',3, TO_DATE('2018/03/03 11:29:03','YYYY/MM/DD HH24:MI:SS'));
+INSERT INTO Play VALUES ('cheoqkr43',4, TO_DATE('2018/03/04 09:11:02','YYYY/MM/DD HH24:MI:SS'));
+INSERT INTO Play VALUES ('ewnqw44',5, TO_DATE('2018/03/05 03:23:12','YYYY/MM/DD HH24:MI:SS'));
+INSERT INTO Play VALUES ('replayms',5, TO_DATE('2018/03/06 05:20:29','YYYY/MM/DD HH24:MI:SS'));
+INSERT INTO Play VALUES ('replayms',6, TO_DATE('2018/03/07 08:10:23','YYYY/MM/DD HH24:MI:SS'));
+INSERT INTO Play VALUES ('replayms',7, TO_DATE('2018/03/08 11:11:22','YYYY/MM/DD HH24:MI:SS'));
+INSERT INTO Play VALUES ('replayms',8, TO_DATE('2018/03/09 12:22:23','YYYY/MM/DD HH24:MI:SS'));
+INSERT INTO Play VALUES ('lkjpoi203',8, TO_DATE('2019/03/09 23:18:13','YYYY/MM/DD HH24:MI:SS'));
+INSERT INTO Play VALUES ('rydhxm2938',10, TO_DATE('2019/03/10 23:22:23','YYYY/MM/DD HH24:MI:SS'));
+INSERT INTO Play VALUES ('hoseo21',9, TO_DATE('2019/03/11 22:38:30','YYYY/MM/DD HH24:MI:SS'));
+INSERT INTO Play VALUES ('korpark',11, TO_DATE('2019/03/12 20:12:22','YYYY/MM/DD HH24:MI:SS'));
+INSERT INTO Play VALUES ('jujupark',12, TO_DATE('2019/03/13 21:23:20','YYYY/MM/DD HH24:MI:SS'));
+INSERT INTO Play VALUES ('ghtjqo123',13, TO_DATE('2019/03/13 21:28:27','YYYY/MM/DD HH24:MI:SS'));
+INSERT INTO Play VALUES ('sujilove29',14, TO_DATE('2019/03/14 21:48:20','YYYY/MM/DD HH24:MI:SS'));
+INSERT INTO Play VALUES ('jinmoon00',15, TO_DATE('2019/03/15 22:58:39','YYYY/MM/DD HH24:MI:SS'));
+INSERT INTO Play VALUES ('ghiee126',3, TO_DATE('2019/03/16 23:29:38','YYYY/MM/DD HH24:MI:SS'));
+INSERT INTO Play VALUES ('khn1237',4, TO_DATE('2019/03/17 12:19:28','YYYY/MM/DD HH24:MI:SS'));
+
+commit;
+
+
+
+Create Table PlayList (
+user_ID Varchar2(15),
+list_num Number,
+playlist_date Date Default SYSDATE,
+constraint PlayList_userplaylist_pk Primary key(user_ID,list_num,playlist_date),
+constraint PlayList_user_ID_fk Foreign Key(user_ID) references musicapp_user(user_id),
+constraint PlayList_list_num_fk Foreign Key(list_num) references SoundTrack(num));
+
+INSERT INTO PlayList VALUES ('zxcv1256',1,TO_DATE('2018/04/24 02:16:52','YYYY/MM/DD HH24:MI:SS'));
+INSERT INTO PlayList VALUES ('pineTree04',2,TO_DATE('2018/06/16 13:43:22','YYYY/MM/DD HH24:MI:SS'));
+INSERT INTO PlayList VALUES ('cheoqkr43',5,TO_DATE('2018/06/17 15:23:23','YYYY/MM/DD HH24:MI:SS'));
+INSERT INTO PlayList VALUES ('wolfback123',1,TO_DATE('2018/07/01 15:03:03','YYYY/MM/DD HH24:MI:SS'));
+INSERT INTO PlayList VALUES ('rydhxm2938',11,TO_DATE('2018/07/01 18:36:02','YYYY/MM/DD HH24:MI:SS'));
+INSERT INTO PlayList VALUES ('hajamas',3,TO_DATE('2018/07/10 15:14:34','YYYY/MM/DD HH24:MI:SS'));
+INSERT INTO PlayList VALUES ('lkjpoi203',8,TO_DATE('2018/07/31 20:00:12','YYYY/MM/DD HH24:MI:SS'));
+INSERT INTO PlayList VALUES ('jinmoon00',13,TO_DATE('2018/08/07 11:03:08','YYYY/MM/DD HH24:MI:SS'));
+INSERT INTO PlayList VALUES ('zxcv1256',12,TO_DATE('2018/08/16 23:15:00','YYYY/MM/DD HH24:MI:SS'));
+INSERT INTO PlayList VALUES ('ghiee126',11,TO_DATE('2018/08/17 21:06:50','YYYY/MM/DD HH24:MI:SS'));
+INSERT INTO PlayList VALUES ('khn1237',1,TO_DATE('2018/08/19 22:18:18','YYYY/MM/DD HH24:MI:SS'));
+INSERT INTO PlayList VALUES ('grecklv123',2,TO_DATE('2018/09/06 04:04:04','YYYY/MM/DD HH24:MI:SS'));
+INSERT INTO PlayList VALUES ('rydhxm2938',4,TO_DATE('2018/09/26 04:44:44','YYYY/MM/DD HH24:MI:SS'));
+INSERT INTO PlayList VALUES ('replayms',8,TO_DATE('2018/09/30 23:33:33','YYYY/MM/DD HH24:MI:SS'));
+INSERT INTO PlayList VALUES ('jujupark',10,TO_DATE('2018/10/16 03:00:02','YYYY/MM/DD HH24:MI:SS'));
+INSERT INTO PlayList VALUES ('hoseo21',12,TO_DATE('2018/10/16 09:15:51','YYYY/MM/DD HH24:MI:SS'));
+INSERT INTO PlayList VALUES ('grecklv123',7,TO_DATE('2018/10/22 06:46:32','YYYY/MM/DD HH24:MI:SS'));
+INSERT INTO PlayList VALUES ('pineTree04',5,TO_DATE('2018/11/09 11:09:09','YYYY/MM/DD HH24:MI:SS'));
+INSERT INTO PlayList VALUES ('khn1237',13,TO_DATE('2018/11/23 23:47:42','YYYY/MM/DD HH24:MI:SS'));
+INSERT INTO PlayList VALUES ('ewnqw44',17,TO_DATE('2018/12/25 15:08:53','YYYY/MM/DD HH24:MI:SS'));
+
+commit;
+
+
+
+Create Table Decide (
+decide_date Date Default SYSDATE,
+streamer_ID Varchar2(15),
+rank_category Varchar2(10) Default '비기너',
+constraint Decide_date_streamer_rank_pk Primary key(decide_date,streamer_ID,rank_category),
+constraint Decide_streamer_ID_fk Foreign Key(streamer_ID) references Streamer(streamer_ID),
+constraint Decide_rank_category_fk Foreign Key(rank_category) references Streamer_Rank(category));
+
+INSERT INTO Decide VALUES (TO_DATE('2011/07/20 07:16:52','YYYY/MM/DD HH24:MI:SS'),'devil666',Default);
+INSERT INTO Decide VALUES (TO_DATE('2012/02/04 10:58:00','YYYY/MM/DD HH24:MI:SS'),'xodud0728',Default);
+INSERT INTO Decide VALUES (TO_DATE('2014/08/14 18:07:48','YYYY/MM/DD HH24:MI:SS'),'blondh03973',Default);
+INSERT INTO Decide VALUES (TO_DATE('2014/08/26 22:04:48','YYYY/MM/DD HH24:MI:SS'),'pyttttttthon3',Default);
+INSERT INTO Decide VALUES (TO_DATE('2015/02/24 18:57:18','YYYY/MM/DD HH24:MI:SS'),'ewnqw44',Default);
+INSERT INTO Decide VALUES (TO_DATE('2016/06/20 15:17:18','YYYY/MM/DD HH24:MI:SS'),'replayms',Default);
+INSERT INTO Decide VALUES (TO_DATE('2017/06/19 12:07:04','YYYY/MM/DD HH24:MI:SS'),'alfo1105',Default);
+INSERT INTO Decide VALUES (TO_DATE('2017/09/24 21:45:26','YYYY/MM/DD HH24:MI:SS'),'mad_head',Default);
+INSERT INTO Decide VALUES (TO_DATE('2018/01/04 23:18:02','YYYY/MM/DD HH24:MI:SS'),'skfo0519',Default);
+INSERT INTO Decide VALUES (TO_DATE('2018/01/25 08:04:07','YYYY/MM/DD HH24:MI:SS'),'haeyyyyuum',Default);
+INSERT INTO Decide VALUES (TO_DATE('2018/03/18 08:14:40','YYYY/MM/DD HH24:MI:SS'),'hajamas',Default);
+INSERT INTO Decide VALUES (TO_DATE('2018/03/22 07:17:48','YYYY/MM/DD HH24:MI:SS'),'wolfback123',Default);
+INSERT INTO Decide VALUES (TO_DATE('2018/04/01 17:48:40','YYYY/MM/DD HH24:MI:SS'),'grecklv123',Default);
+INSERT INTO Decide VALUES (TO_DATE('2018/04/10 21:18:43','YYYY/MM/DD HH24:MI:SS'),'ghkdangel0123',Default);
+INSERT INTO Decide VALUES (TO_DATE('2018/04/24 23:47:42','YYYY/MM/DD HH24:MI:SS'),'tttl7893',Default);
+INSERT INTO Decide VALUES (TO_DATE('2018/05/18 15:11:52','YYYY/MM/DD HH24:MI:SS'),'phy0524',Default);
+INSERT INTO Decide VALUES (TO_DATE('2018/06/01 08:17:50','YYYY/MM/DD HH24:MI:SS'),'kyu0421',Default);
+INSERT INTO Decide VALUES (TO_DATE('2018/06/19 12:07:04','YYYY/MM/DD HH24:MI:SS'),'lgt1104',Default);
+INSERT INTO Decide VALUES (TO_DATE('2018/10/18 19:40:18','YYYY/MM/DD HH24:MI:SS'),'ewwqej31',Default);
+INSERT INTO Decide VALUES (TO_DATE('2018/12/24 09:18:08','YYYY/MM/DD HH24:MI:SS'),'alsdud1204',Default);
+
+commit;
+
+
+
+Create Table Viewing (
+user_ID Varchar2(15),
+view_num Number,
+constraint Viewing_u_ID_streaming_num_pk Primary key(user_ID,view_num),
+constraint Viewing_user_ID_fk Foreign Key(user_ID) references musicapp_user(user_id),
+constraint Viewing_view_num_fk Foreign Key(view_num) references Streaming(num));
+
+INSERT INTO Viewing VALUES ('wjnf12',1);
+INSERT INTO Viewing VALUES ('cheoqkr43',4);
+INSERT INTO Viewing VALUES ('ewnqw44',2);
+INSERT INTO Viewing VALUES ('jujupark',6);
+INSERT INTO Viewing VALUES ('zxcv1256',2);
+INSERT INTO Viewing VALUES ('grecklv123',14);
+INSERT INTO Viewing VALUES ('khn1237',12);
+INSERT INTO Viewing VALUES ('hajamas',12);
+INSERT INTO Viewing VALUES ('grecklv123',5);
+INSERT INTO Viewing VALUES ('khn1237',2);
+INSERT INTO Viewing VALUES ('hajamas',5);
+INSERT INTO Viewing VALUES ('hajamas',6);
+INSERT INTO Viewing VALUES ('wjnf12',9);
+INSERT INTO Viewing VALUES ('ewnqw44',15);
+INSERT INTO Viewing VALUES ('wolfback123',17);
+INSERT INTO Viewing VALUES ('wolfback123',13);
+INSERT INTO Viewing VALUES ('lkjpoi203',8);
+INSERT INTO Viewing VALUES ('wolfback123',6);
+INSERT INTO Viewing VALUES ('lkjpoi203',7);
+INSERT INTO Viewing VALUES ('jujupark',14);
+
+commit;
+
+
+
+Create Table Donate(
+user_ID Varchar2(15),
+streamer_ID Varchar2(15),
+donate_date Date Default SYSDATE,
+payment Number CHECK(payment >= 1000),
+constraint Donate_user_whento_streamer_pk Primary key(user_ID,streamer_ID,donate_date),
+constraint Donate_user_ID_fk Foreign Key(user_ID) references musicapp_user(user_id),
+constraint Donate_streamer_ID_fk Foreign Key(streamer_ID) references Streamer(streamer_ID));
+
+INSERT INTO Donate VALUES ('hoseo21', 'devil666', TO_DATE('2012/06/25 03:00:16','YYYY/MM/DD HH24:MI:SS'), 2000 );
+INSERT INTO Donate VALUES ('lkjpoi203', 'xodud0728', TO_DATE('2012/11/17 02:23:52','YYYY/MM/DD HH24:MI:SS'), 5000 );
+INSERT INTO Donate VALUES ('rydhxm2938', 'pyttttttthon3', TO_DATE('2015/04/13 02:00:16','YYYY/MM/DD HH24:MI:SS'), 1000 );
+INSERT INTO Donate VALUES ('hoseo21','ewnqw44', TO_DATE('2015/08/12 12:01:25','YYYY/MM/DD HH24:MI:SS'), 2000 );
+INSERT INTO Donate VALUES ('korpark', 'replayms', TO_DATE('2016/11/14 17:22:16','YYYY/MM/DD HH24:MI:SS'),1000 );
+INSERT INTO Donate VALUES ('jujupark', 'alfo1105', TO_DATE('2017/07/08 00:02:14','YYYY/MM/DD HH24:MI:SS'), 7000 );
+INSERT INTO Donate VALUES ('ghtjqo123', 'mad_head', TO_DATE('2018/02/03 04:00:16','YYYY/MM/DD HH24:MI:SS'),2000 );
+INSERT INTO Donate VALUES ('sujilove29', 'skfo0519', TO_DATE('2018/02/14 00:00:00','YYYY/MM/DD HH24:MI:SS'), 1400 );
+INSERT INTO Donate VALUES ('jinmoon00', 'grecklv123', TO_DATE('2018/07/21 00:20:45','YYYY/MM/DD HH24:MI:SS'), 1000 );
+INSERT INTO Donate VALUES ('ghiee126', 'blondh03973', TO_DATE('2018/08/24 19:30:26','YYYY/MM/DD HH24:MI:SS'), 2000 );
+INSERT INTO Donate VALUES ('khn1237', 'phy0524', TO_DATE('2018/10/04 18:02:47','YYYY/MM/DD HH24:MI:SS'), 5000 );
+INSERT INTO Donate VALUES ('rydhxm2938', 'ghkdangel0123', TO_DATE('2018/11/12 19:20:16','YYYY/MM/DD HH24:MI:SS'), 2000 );
+INSERT INTO Donate VALUES ('ghiee126', 'wolfback123', TO_DATE('2019/01/01 00:05:02','YYYY/MM/DD HH24:MI:SS'), 10000 );
+INSERT INTO Donate VALUES ('jinmoon00', 'hajamas', TO_DATE('2019/01/24 15:51:34','YYYY/MM/DD HH24:MI:SS'), 4000 );
+INSERT INTO Donate VALUES ('hoseo21','alsdud1204', TO_DATE('2019/03/15 14:56:27','YYYY/MM/DD HH24:MI:SS'), 1000 );
+INSERT INTO Donate VALUES ('jujupark', 'lgt1104', TO_DATE('2019/04/14 21:30:52','YYYY/MM/DD HH24:MI:SS'), 4444 );
+INSERT INTO Donate VALUES ('lkjpoi203', 'kyu0421', TO_DATE('2019/05/05 13:00:11','YYYY/MM/DD HH24:MI:SS'), 5555 );
+INSERT INTO Donate VALUES ('rydhxm2938', 'ewwqej31', TO_DATE('2019/05/25 21:23:33','YYYY/MM/DD HH24:MI:SS'), 1000 );
+INSERT INTO Donate VALUES ('cheoqkr43', 'haeyyyyuum', TO_DATE('2019/05/27 01:00:25','YYYY/MM/DD HH24:MI:SS'), 2000 );
+INSERT INTO Donate VALUES ('ghtjqo123', 'tttl7893', TO_DATE('2019/05/26 23:40:16','YYYY/MM/DD HH24:MI:SS'), 3000 );
+
+commit;
+
+
+
+Create Table Purchase (
+user_ID Varchar2(15),
+purchase_product Number,
+purchase_date Date Default SYSDATE,
+payment_type Varchar2(15) CHECK(payment_type IN('휴대폰결제','카드결제','계좌이체')),
+purchase_num Number Not Null,
+payment_info Varchar2(50) Not Null,
+constraint Purchase_upd_pk Primary key(user_ID,purchase_product,purchase_date),
+constraint Purchase_user_ID_fk Foreign Key(user_ID) references musicapp_user(user_id),
+constraint Purchase_p_product_fk Foreign Key(purchase_product) references Product(num));
+
+INSERT INTO Purchase VALUES ('lkjpoi203', 1,TO_DATE('2012/12/14 01:43:52','YYYY/MM/DD HH24:MI:SS'), '휴대폰결제', 1, '010-1201-2031');
+INSERT INTO Purchase VALUES ('rydhxm2938', 2,TO_DATE('2012/09/30 00:53:44','YYYY/MM/DD HH24:MI:SS'), '휴대폰결제', 1,'010-2048-2758');
+INSERT INTO Purchase VALUES ('hoseo21', 3,TO_DATE('2013/04/01 10:45:23','YYYY/MM/DD HH24:MI:SS'), '카드결제', 1, '6325849952559871');
+INSERT INTO Purchase VALUES ('korpark', 4,TO_DATE('2014/09/12 18:52:59','YYYY/MM/DD HH24:MI:SS'), '휴대폰결제', 2,'010-2948-7471');
+INSERT INTO Purchase VALUES ('jujupark', 5,TO_DATE('2015/10/01 17:11:05','YYYY/MM/DD HH24:MI:SS'),'카드결제', 2, '8954136411258765');
+INSERT INTO Purchase VALUES ('ghtjqo123', 6 ,TO_DATE('2016/04/11 23:34:07','YYYY/MM/DD HH24:MI:SS'), '휴대폰결제', 1, '010-2351-4412');
+INSERT INTO Purchase VALUES ('sujilove29', 6 ,TO_DATE('2015/07/29 00:04:53','YYYY/MM/DD HH24:MI:SS'), '카드결제', 1, '1023252078859654');
+INSERT INTO Purchase VALUES ('jinmoon00', 7 ,TO_DATE('2018/12/16 14:45:03','YYYY/MM/DD HH24:MI:SS'), '휴대폰결제', 2, '010-5937-4462');
+INSERT INTO Purchase VALUES ('ghiee126', 7 ,TO_DATE('2019/01/05 11:53:01','YYYY/MM/DD HH24:MI:SS'), '휴대폰결제', 1, '010-0091-1004');
+INSERT INTO Purchase VALUES ('khn1237', 11,TO_DATE('2016/11/04 18:53:15','YYYY/MM/DD HH24:MI:SS'), '카드결제', 2, '4456952275146554');
+INSERT INTO Purchase VALUES ('lkjpoi203', 11,TO_DATE('2016/11/19 23:53:15','YYYY/MM/DD HH24:MI:SS'), '휴대폰결제', 2, '010-1201-2031');
+INSERT INTO Purchase VALUES ('rydhxm2938', 12,TO_DATE('2017/10/25 20:34:21','YYYY/MM/DD HH24:MI:SS'), '휴대폰결제', 1,'010-2048-2758');
+INSERT INTO Purchase VALUES ('hoseo21', 13,TO_DATE('2016/11/28 19:42:56','YYYY/MM/DD HH24:MI:SS'), '카드결제', 2, '6325849952559871');
+INSERT INTO Purchase VALUES ('korpark', 14,TO_DATE('2019/06/30 22:39:42','YYYY/MM/DD HH24:MI:SS'), '휴대폰결제', 2,'010-2948-7471');
+INSERT INTO Purchase VALUES ('jujupark', 15,TO_DATE('2017/08/15 17:56:11','YYYY/MM/DD HH24:MI:SS'),'카드결제', 1, '8954136411258765');
+INSERT INTO Purchase VALUES ('ghtjqo123', 16 ,TO_DATE('2018/04/11 10:00:46','YYYY/MM/DD HH24:MI:SS'), '휴대폰결제', 2, '010-2351-4412');
+INSERT INTO Purchase VALUES ('sujilove29', 17 ,TO_DATE('2018/12/18 09:46:02','YYYY/MM/DD HH24:MI:SS'), '카드결제', 2, '1023252078859654');
+INSERT INTO Purchase VALUES ('jinmoon00', 18 ,TO_DATE('2019/07/04 06:39:42','YYYY/MM/DD HH24:MI:SS'), '휴대폰결제', 1, '010-5937-4462');
+INSERT INTO Purchase VALUES ('ghiee126', 19 ,TO_DATE('2019/05/19 16:33:12','YYYY/MM/DD HH24:MI:SS'), '휴대폰결제', 1, '010-0091-1004');
+INSERT INTO Purchase VALUES ('khn1237', 20,TO_DATE('2015/07/28 19:33:42','YYYY/MM/DD HH24:MI:SS'), '카드결제', 1, '4456952275146554');
+
+commit;
+SET DEFINE ON;

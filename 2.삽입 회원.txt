@@ -1,0 +1,1 @@
+INSERT INTO MusicApp_User(user_ID, name, password, sex, phon, address, email, born_date) VALUES ('&회원ID', '&이름', '&비밀번호', '&성별', '&연락처', '&주소', '&이메일', '&생년월일') ; 
